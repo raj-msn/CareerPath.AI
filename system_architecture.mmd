@@ -1,0 +1,70 @@
+graph TB
+    subgraph "Frontend Layer"
+        React[React Application]
+        Chat[Chat Interface]
+        Flow[React Flow Visualization]
+        Links[Resource Links]
+    end
+    
+    subgraph "API Layer"
+        FastAPI[FastAPI Server]
+        Endpoints[REST Endpoints]
+    end
+    
+    subgraph "Agent Layer"
+        Supervisor[Supervisor Agent]
+        Skills[Skills Agent]
+        Industry[Industry Agent]
+        Learning[Learning Agent]
+        Resources[Resources Agent]
+    end
+    
+    subgraph "State Management"
+        LangGraph[LangGraph State]
+        Memory[Conversation Memory]
+    end
+    
+    subgraph "External Services"
+        OpenAI[GPT-4o-mini API]
+        Tavily[Tavily Search API]
+    end
+    
+    %% Connections
+    React --> FastAPI
+    Chat --> FastAPI
+    Flow --> FastAPI
+    Links --> FastAPI
+    
+    FastAPI --> Endpoints
+    Endpoints --> Supervisor
+    
+    Supervisor --> Skills
+    Supervisor --> Industry
+    Supervisor --> Learning
+    Supervisor --> Resources
+    
+    Skills --> LangGraph
+    Industry --> LangGraph
+    Learning --> LangGraph
+    Resources --> LangGraph
+    
+    LangGraph --> Memory
+    
+    Skills --> OpenAI
+    Industry --> OpenAI
+    Learning --> OpenAI
+    Resources --> OpenAI
+    Resources --> Tavily
+    
+    %% Styling
+    classDef frontend fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef api fill:#FFF3E0,stroke:#F57C00,stroke-width:2px
+    classDef agents fill:#E8F5E8,stroke:#388E3C,stroke-width:2px
+    classDef state fill:#FAFAFA,stroke:#616161,stroke-width:2px
+    classDef external fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px
+    
+    class React,Chat,Flow,Links frontend
+    class FastAPI,Endpoints api
+    class Supervisor,Skills,Industry,Learning,Resources agents
+    class LangGraph,Memory state
+    class OpenAI,Tavily external

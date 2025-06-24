@@ -1,0 +1,43 @@
+graph TD
+    %% User Interface Layer
+    User[👤 User Input<br/>Career Query] --> Supervisor[🎯 Supervisor Agent<br/>Orchestrator]
+    
+    %% Agent Layer
+    Supervisor --> Skills[📊 Skills Assessment<br/>Agent]
+    Supervisor --> Industry[🏢 Industry Research<br/>Agent]
+    Supervisor --> Learning[🛤️ Learning Path<br/>Agent]
+    Supervisor --> Resources[📚 Resources Agent<br/>+ Web Search]
+    
+    %% External Tools
+    Skills --> GPT[🤖 GPT-4o-mini<br/>LLM]
+    Industry --> GPT
+    Learning --> GPT
+    Resources --> GPT
+    Resources --> Tavily[🔍 Tavily<br/>Web Search API]
+    
+    %% State Management
+    Skills --> State[💾 Shared State<br/>LangGraph]
+    Industry --> State
+    Learning --> State
+    Resources --> State
+    
+    %% Output Layer
+    State --> Frontend[⚛️ React Frontend<br/>Chat Interface]
+    State --> ReactFlow[🗺️ React Flow<br/>Interactive Roadmap]
+    State --> Links[🔗 Clickable Links<br/>Courses & Certs]
+    State --> API[🚀 FastAPI<br/>Backend Server]
+    
+    %% Styling
+    classDef userLayer fill:#E3F2FD,stroke:#1976D2,stroke-width:2px
+    classDef supervisorLayer fill:#FFF3E0,stroke:#F57C00,stroke-width:2px
+    classDef agentLayer fill:#E8F5E8,stroke:#388E3C,stroke-width:2px
+    classDef toolLayer fill:#F3E5F5,stroke:#7B1FA2,stroke-width:2px
+    classDef stateLayer fill:#FAFAFA,stroke:#616161,stroke-width:2px
+    classDef outputLayer fill:#FFF8E1,stroke:#F9A825,stroke-width:2px
+    
+    class User userLayer
+    class Supervisor supervisorLayer
+    class Skills,Industry,Learning,Resources agentLayer
+    class GPT,Tavily toolLayer
+    class State stateLayer
+    class Frontend,ReactFlow,Links,API outputLayer

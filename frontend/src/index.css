@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* React Flow custom styles */
+.react-flow__node {
+  font-size: 12px;
+}
+
+.react-flow__node-input,
+.react-flow__node-output,
+.react-flow__node-default {
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.react-flow__node-input.selected,
+.react-flow__node-output.selected,
+.react-flow__node-default.selected {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Chat message styles */
+.chat-message {
+  @apply mb-4 animate-slide-up;
+}
+
+.chat-message.user {
+  @apply flex justify-end;
+}
+
+.chat-message.ai {
+  @apply flex justify-start;
+}
+
+.message-bubble {
+  @apply max-w-xs lg:max-w-md px-4 py-2 rounded-lg break-words;
+}
+
+.message-bubble.user {
+  @apply bg-primary-500 text-white rounded-br-none;
+}
+
+.message-bubble.ai {
+  @apply bg-gray-100 text-gray-800 rounded-bl-none;
+}
+
+/* Mermaid diagram container */
+.mermaid-container {
+  @apply bg-white p-4 rounded-lg shadow-lg overflow-auto;
+}
+
+/* Loading animation */
+.loading-dots {
+  @apply inline-flex space-x-1;
+}
+
+.loading-dots div {
+  @apply w-2 h-2 bg-primary-500 rounded-full animate-pulse;
+  animation-delay: calc(var(--i) * 0.2s);
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Markdown content styling for AI responses */
+.markdown-content {
+  @apply text-gray-800;
+}
+
+.markdown-content > *:first-child {
+  margin-top: 0 !important;
+}
+
+.markdown-content > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure proper spacing for nested lists */
+.markdown-content ul ul,
+.markdown-content ol ol,
+.markdown-content ul ol,
+.markdown-content ol ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Style for emoji and special characters */
+.markdown-content strong:first-child {
+  @apply inline-block;
+}
+
+/* Better spacing for paragraphs in lists */
+.markdown-content li p {
+  margin-bottom: 0.25rem;
+}
+
+/* Enhanced code block styling */
+.markdown-content pre code {
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Table styling if needed */
+.markdown-content table {
+  @apply w-full border-collapse border border-gray-300 mb-2;
+}
+
+.markdown-content th,
+.markdown-content td {
+  @apply border border-gray-300 px-2 py-1 text-left;
+}
+
+.markdown-content th {
+  @apply bg-gray-100 font-semibold;
+} 
