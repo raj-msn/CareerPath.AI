@@ -2,6 +2,8 @@
 
 An opensource **LLM-driven career planning tool** that generates personalized, interactive roadmaps via chat. Built with a **LangGraph-based multi-agent system** simulating mentors to recommend skills and resources using RAG, embeddings, and prompt engineering. Features **React Flow** visualization for real-time career path mapping.
 
+![image](https://github.com/user-attachments/assets/75107c20-5965-4e21-8104-5d67ede95372)
+
 ## ✨ Features
 
 - 🤖 **Multi-Agent System**: Specialized AI agents for different aspects of career planning
