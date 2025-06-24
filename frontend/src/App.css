@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset some default styles and set up App header */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Subtle dark radial gradient */
+  background-color: #030304; /* Very dark base */
+  background-image: radial-gradient(ellipse at center, #18181C 30%, #030304 100%); /* Dark charcoal center fading to very dark base */
+  color: #e0e0e0; /* Light text for dark mode */
+  min-height: 100vh; /* Ensure gradient covers full viewport height */
+  /* overflow: hidden; */ /* To prevent scrollbars if particles somehow overflow body - REMOVED FOR SCROLLING TEST */
+}
+
+/* Remove .App class if no longer used directly or redefine as needed */
+/* .App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+} */
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  position: relative; /* For particle container positioning */
+}
+
+.app-layout.with-sidebar {
+  /* Styles specific when sidebar is shown, already handled by flex */
+}
+
+.main-content-area {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  /* The Navbar will be inside this, then main */
+  /* overflow-y: auto; */ /* REMOVED: This was causing the navbar to scroll */
+}
+
+.App-header {
+  background-color: #1f1f1f; /* Slightly lighter dark for header */
+  padding: 15px 20px;
+  color: #e0e0e0;
+  margin-bottom: 0; /* Remove margin if chat fills height */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 1.6em;
+  font-weight: 600;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content like ChatPage */
+  padding: 0; /* Remove padding if chat component handles it */
+  /* background-color: #1a1a1a; */ /* Optional: slightly different bg for main area */
+  width: 100%; /* Ensure main takes full available width in its flex context */
+  overflow: hidden; /* Prevent main itself from scrolling, force child to handle scroll */
+}
+
+/* Remove default Vite styles if they exist and are not needed */
+#root {
+  max-width: none; /* Allow full width */
+  margin: 0 auto;
+  padding: 0;
+  text-align: left; /* Reset text-align if chat handles it */
+}
+
+/* Remove other default styles from Vite template if they conflict */
+.logo,
+.logo:hover,
+.logo.react:hover,
+.card,
+.read-the-docs {
+  /* Remove or adjust these as they are from the default Vite template */
+  display: none; /* Quick way to hide them for now */
+}
+
+/* Particle Background Styles */
+.particles-container {
+  position: fixed; /* Changed from absolute to fixed for viewport positioning */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So they don't interfere with clicks */
+  z-index: 0; /* Behind other content, but above body background */
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background-color: rgba(230, 230, 230, 0.7); /* Brighter white, more evident */
+  border-radius: 50%;
+  animation-name: float;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  opacity: 0; /* Start transparent, animation brings them in */
+}
+
+/* Particle instances with varied sizes, positions, and animation timings */
+.particle.p1 { width: 2px; height: 2px; top: 15%; left: 10%; animation-duration: 35s; animation-delay: -2s; }
+.particle.p2 { width: 3px; height: 3px; top: 50%; left: 85%; animation-duration: 40s; animation-delay: -5s; }
+.particle.p3 { width: 2px; height: 2px; top: 80%; left: 25%; animation-duration: 30s; animation-delay: -8s; }
+.particle.p4 { width: 4px; height: 4px; top: 5%; left: 50%; animation-duration: 45s; animation-delay: -12s; }
+.particle.p5 { width: 3px; height: 3px; top: 65%; left: 5%; animation-duration: 38s; animation-delay: -15s; }
+/* Add more particles if desired for density */
+/* .particle.p6 { width: 2px; height: 2px; top: 30%; left: 60%; animation-duration: 33s; animation-delay: -18s; } */
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(0.8);
+    opacity: 0.55; /* Further increased opacity */
+  }
+  15% {
+    transform: translate3d(-15px, 20px, 0) scale(1);
+    opacity: 0.8;  /* Further increased opacity */
+  }
+  30% {
+    transform: translate3d(20px, -25px, 0) scale(0.9);
+    opacity: 0.7;  /* Further increased opacity (approx 0.52 * 1.35) */
+  }
+  45% {
+    transform: translate3d(-25px, -10px, 0) scale(1.1);
+    opacity: 0.9;  /* Further increased opacity (capped at 0.9 for subtlety) */
+  }
+  60% {
+    transform: translate3d(10px, 20px, 0) scale(0.95);
+    opacity: 0.8;  /* Further increased opacity */
+  }
+  75% {
+    transform: translate3d(25px, -5px, 0) scale(1);
+    opacity: 0.7;  /* Further increased opacity */
+  }
+  90% {
+    transform: translate3d(-5px, 10px, 0) scale(0.85);
+    opacity: 0.8;  /* Further increased opacity */
+  }
+}

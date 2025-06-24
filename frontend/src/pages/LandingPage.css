@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px); /* Assuming header is ~60px if shown, or 100vh if no header */
+  text-align: center;
+  padding: 20px;
+  /* background: linear-gradient(135deg, #1f2833 0%, #2c3e50 100%); */ /* Commenting out to inherit body background */
+  background: transparent; /* Ensure it inherits the body background from App.css */
+  color: #c5c6c7; /* Softer white */
+}
+
+.landing-content h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4.5em;
+  font-weight: 700;
+  color: #66fcf1; /* Accent gaming cyan/teal */
+  margin-bottom: 0.2em;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(102, 252, 241, 0.3), 0 0 20px rgba(102, 252, 241, 0.2);
+}
+
+.landing-content .welcome-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.8em;
+  font-weight: 300;
+  color: #e0e0e0;
+  margin-bottom: 1.5em;
+  letter-spacing: 0.5px;
+}
+
+.landing-content p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1em;
+  color: #a8b2d1; /* Lighter grey for supporting text */
+  max-width: 600px;
+  margin: 0 auto 2em auto;
+  line-height: 1.6;
+}
+
+.cta-button {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  padding: 15px 35px;
+  color: #0b0c10; /* Dark text on light button */
+  background-color: #66fcf1; /* Accent gaming cyan/teal */
+  border: none;
+  border-radius: 50px; /* Pill shape */
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 252, 241, 0.2);
+}
+
+.cta-button:hover {
+  background-color: #45a29e; /* Slightly darker teal */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(102, 252, 241, 0.3);
+} 

@@ -1,0 +1,49 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #1f1f1f; /* Restored background color */
+  /* box-shadow: none; */ /* Can add a subtle shadow if desired, e.g., 0 2px 4px rgba(0,0,0,0.2) */
+  /* border-bottom: 1px solid #2a2a2a; */
+  /* background-color: transparent;  Remove background color */
+  /* box-shadow: none; /* Remove box shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.nav-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8em; /* Increased size for better visibility */
+  font-weight: 700; /* Bold */
+  color: #66fcf1; /* Accent color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-logo:hover {
+  color: #45a29e;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  color: #c5c6c7;
+  text-decoration: none;
+  margin-left: 25px;
+  font-size: 1.1em;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #66fcf1;
+  border-bottom-color: #66fcf1;
+}
+
+.nav-links a.active {
+  color: #66fcf1;
+  font-weight: 600;
+  border-bottom-color: #66fcf1;
+} 

@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+/* General Chat Interface Styles */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  /* height: calc(100vh - 70px); /* Adjusted for header, assuming header is around 70px */
+  flex-grow: 1; /* Allow it to take available space in main */
+  max-width: 1200px; /* Wider chat, adjust as needed */
+  width: 100%; /* Try to use available width up to max-width */
+  margin: 0 auto; /* Remove vertical margins, keep horizontal auto for centering */
+  padding-top: 20px; /* Add padding to maintain space above message area */
+  background-color: transparent; /* Seamless with body background */
+  border-radius: 0; /* No rounded corners for seamless look */
+  box-shadow: none; /* No shadow for seamless look */
+  border: none; /* No border */
+  overflow: hidden; /* Ensure this container clips, forcing internal scroll on .message-area */
+}
+
+.message-area {
+  flex-grow: 1;
+  padding: 20px 25px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* Added to help with flex scrolling */
+  gap: 15px; /* Slightly increased gap */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #45a29e #1e1e1e; /* Scrollbar thumb (accent darker) and track */
+  max-width: 800px; /* Constrain width to match input form */
+  width: 100%; /* Ensure it uses available width up to max-width */
+  margin-left: auto; /* Center the message area */
+  margin-right: auto; /* Center the message area */
+}
+
+/* Webkit scrollbar styling */
+.message-area::-webkit-scrollbar {
+  width: 8px;
+}
+
+.message-area::-webkit-scrollbar-track {
+  background: transparent; /* Track color to match seamless background */
+}
+
+.message-area::-webkit-scrollbar-thumb {
+  background-color: #45a29e; /* Thumb color (accent darker) */
+  border-radius: 10px;
+  border: 2px solid #1e1e1e; /* Creates padding around thumb */
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message {
+  padding: 10px 15px; /* Slightly reduced padding */
+  border-radius: 18px; /* Slightly adjusted radius */
+  max-width: 75%;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-size: 0.85em; /* Reduced font size */
+  animation: fadeInSlideUp 0.3s ease-out;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  text-align: left; /* Ensure text within bubbles is left-aligned */
+}
+
+.message p {
+  margin: 0;
+}
+
+/* User message - accent color */
+.message.user {
+  background: linear-gradient(135deg, #66fcf1 0%, #45a29e 100%); /* Accent gradient */
+  color: #0B0C10; /* Dark text for contrast */
+  align-self: flex-end;
+  border-bottom-right-radius: 6px; /* Modern tail effect */
+  /* text-align: left; User messages also should have internal left alignment */
+}
+
+/* AI message - subtle purple/magenta or a contrasting cool tone */
+.message.ai {
+  background: linear-gradient(135deg, #3c3c3c 0%, #4a4a4a 100%);
+  /* background-color: #362A40; */ /* Gaming purple/dark grey */
+  color: #dcdcdc;
+  align-self: flex-start;
+  /* max-width: 800px; */ /* Remove this, rely on .message's 75% of new 800px parent */
+  border-bottom-left-radius: 6px; /* Modern tail effect */
+  /* text-align: left; Ensured by the general .message rule */
+}
+
+.message.ai i { /* Styling for "AI is thinking..." */
+  color: #a0a0a0;
+}
+
+/* Input Form Styling */
+.input-form {
+  display: flex;
+  padding: 15px 20px; /* Keep padding for content spacing */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Very subtle top border for separation */
+  background-color: transparent; /* Seamless with body background */
+  max-width: 800px; /* Constrain width for a more focused look */
+  width: 100%; /* Ensure it takes up available space up to max-width */
+  margin: 10px auto 20px auto; /* Center it and provide some vertical spacing */
+}
+
+.input-form input {
+  flex-grow: 1;
+  padding: 10px 15px; /* Adjusted padding */
+  border: 1px solid #383838;
+  border-radius: 22px; /* Adjusted radius */
+  margin-right: 10px; /* Adjusted margin */
+  font-size: 0.9em; /* Reduced font size */
+  background-color: #2c2c2c;
+  color: #e0e0e0;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+}
+
+.input-form input:focus {
+  border-color: #66fcf1; /* Accent color on focus */
+  box-shadow: 0 0 0 2px rgba(102, 252, 241, 0.3); /* Accent color shadow */
+}
+
+.input-form input::placeholder {
+  color: #777;
+}
+
+.input-form button {
+  padding: 10px 20px; /* Adjusted padding */
+  background: #66fcf1; /* Accent color */
+  color: #0B0C10; /* Dark text for contrast */
+  font-weight: 600;
+  border: none;
+  border-radius: 22px; /* Adjusted radius */
+  cursor: pointer;
+  font-size: 0.9em; /* Reduced font size */
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.input-form button:hover:not(:disabled) {
+  background: #45a29e; /* Darker accent on hover */
+  transform: translateY(-1px);
+}
+
+.input-form button:active:not(:disabled) {
+  transform: translateY(0px);
+}
+
+.input-form button:disabled {
+  background-color: #404040;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* AI Thinking Animation */
+.message.ai p i {
+    display: inline-block;
+}
+
+.message.ai p i::after {
+    content: '.';
+    animation: thinkingDots 1.5s steps(5, end) infinite;
+}
+
+@keyframes thinkingDots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60% { content: '...'; }
+    80%, 100% { content: '.'; }
+}
+
+/* Markdown Specific Styling */
+.message.ai pre {
+  background-color: #2d2d2d; /* Darker background for code blocks */
+  border: 1px solid #444;
+  border-radius: 6px;
+  padding: 12px;
+  overflow-x: auto; /* Allow horizontal scrolling for long code lines */
+  font-family: 'Fira Code', 'Courier New', monospace; /* Monospaced font for code */
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin: 10px 0; /* Spacing around code blocks */
+}
+
+.message.ai code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background-color: #3a3a3a; /* Slightly lighter for inline code */
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+.message.ai pre code {
+  background-color: transparent; /* Reset for code inside pre */
+  padding: 0;
+  font-size: inherit; /* Inherit from pre */
+}
+
+.message.ai table {
+  width: auto; /* Let table size itself, or set to 100% if you want full width */
+  border-collapse: collapse;
+  margin: 15px 0;
+  font-size: 0.9em;
+}
+
+.message.ai th,
+.message.ai td {
+  border: 1px solid #444;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.message.ai th {
+  background-color: #3a3a3a;
+  font-weight: 600;
+}
+
+.message.ai blockquote {
+  border-left: 4px solid #66fcf1; /* Accent color for blockquote */
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 15px;
+  color: #b0b0b0; /* Slightly muted text for blockquotes */
+  font-style: italic;
+}
+
+.message.ai ul, .message.ai ol {
+  padding-left: 25px;
+}
+
+.message.ai li {
+  margin-bottom: 5px;
+} 

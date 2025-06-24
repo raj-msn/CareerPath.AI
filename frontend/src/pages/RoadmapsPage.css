@@ -1,0 +1,21 @@
+.roadmaps-container {
+  padding: 30px;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.roadmaps-container h2 {
+  font-size: 2.5em;
+  color: #66fcf1; /* Accent color */
+  margin-bottom: 20px;
+}
+
+.roadmaps-container p {
+  font-size: 1.2em;
+  color: #c5c6c7;
+  max-width: 600px;
+} 

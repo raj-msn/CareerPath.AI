@@ -1,0 +1,64 @@
+.sidebar {
+  width: 260px;
+  background-color: #0a0a0c; /* Very dark, slightly different from main bg */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  box-sizing: border-box;
+  border-right: 1px solid #1f1f23; /* Subtle border */
+  color: #c5c6c7;
+  position: sticky; /* Make it sticky to the top of its container */
+  top: 0; /* Stick to the top */
+  flex-shrink: 0; /* Prevent from shrinking */
+  transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition for width and padding */
+}
+
+.sidebar-header {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #1f1f23; /* Separator for header */
+  display: flex; /* Use flex to position title and button */
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Push title and button apart */
+}
+
+.sidebar-header h3 {
+  margin: 0;
+  font-size: 1.2em;
+  color: #e0e0e0;
+  flex-grow: 1; /* Allow h3 to take available space */
+}
+
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  color: #c5c6c7;
+  font-size: 1.5em; /* Make it a bit larger */
+  cursor: pointer;
+  padding: 0 5px; /* Minimal padding */
+  line-height: 1; /* Align better with text if any */
+}
+
+.sidebar-toggle-btn:hover {
+  color: #e0e0e0;
+}
+
+.sidebar-content p {
+  font-size: 0.9em;
+  color: #888;
+}
+
+/* Styles for when the sidebar is collapsed */
+.sidebar.sidebar-collapsed {
+  width: 60px; /* Significantly reduced width */
+  padding: 15px 10px; /* Adjust padding */
+}
+
+.sidebar.sidebar-collapsed .sidebar-header {
+  justify-content: center; /* Center the button when collapsed */
+  border-bottom: none; /* Optional: remove border when collapsed and no title */
+  margin-bottom: 0;
+}
+
+/* Add styles for chat history items, new chat button etc. later */ 
