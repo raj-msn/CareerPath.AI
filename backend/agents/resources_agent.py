@@ -27,7 +27,7 @@ class ResourceRecommendationAgent:
         
         # Bind tools to the model only if search tool is available
         if self.search_tool:
-            self.model_with_tools = model
+            self.model_with_tools = model.bind_tools([self.search_tool])
         else:
             self.model_with_tools = model
         
