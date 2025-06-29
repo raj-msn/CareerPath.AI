@@ -15,12 +15,6 @@ https://github.com/user-attachments/assets/e495dfcc-9907-46aa-9ecf-1e7d4730ba59
 - 📚 **Resource Recommendations**: Courses, certifications, and learning materials
 - 🔍 **Real-time Web Search**: Live search for current courses and certifications with clickable links
 
-## 🎨 Screenshots
-
-![image](https://github.com/user-attachments/assets/75107c20-5965-4e21-8104-5d67ede95372)
-
-![image](https://github.com/user-attachments/assets/902d3298-b200-4c6a-8848-99b5fe41dd13)
-
 ## 🏗️ Architecture
 
 ### Multi-Agent System (LangGraph)
